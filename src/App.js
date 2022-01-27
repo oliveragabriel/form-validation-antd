@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { Form, Button } from "antd";
+import "antd/dist/antd.css";
+import NameInput from "./components/NameInput";
+import CpfInput from "./components/CpfInput";
+import RgInput from "./components/RgInput";
+import EmailInput from "./components/EmailInput";
 
 function App() {
+  const onFinish = (values) => {
+    console.log("Success:", values);
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Form
+      name="basic"
+      initialValues={{ remember: true }}
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
+      autoComplete="off"
+    >
+      <NameInput />
+      <CpfInput />
+      <RgInput />
+      <EmailInput />
+      <Button type="primary" htmlType="submit">
+        Entrar
+      </Button>
+    </Form>
   );
 }
 
