@@ -1,17 +1,19 @@
 import { Form, Input } from "antd";
+import { UserOutlined } from '@ant-design/icons';
 import "antd/dist/antd.css";
 
 function NameInput() {
   return (
       <Form.Item
-        label=""
+        label="Nome Completo"
         name="username"
         rules={[
           { required: true, message: "O campo Nome é obrigatório!" },
         ]}
       >
         <Input 
-          placeholder="Nome Completo"
+          placeholder=""
+          addonAfter={<UserOutlined />}
         />
       </Form.Item>
   );

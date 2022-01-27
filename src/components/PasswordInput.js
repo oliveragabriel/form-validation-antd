@@ -3,33 +3,48 @@ import "antd/dist/antd.css";
 
 function PasswordInput() {
   return (
-      <Form.Item
-        label=""
-        name="password"
-        rules={[
-          { required: true, message: "O campo E-mail é obrigatório!" },
-          () => ({
-            validator(_, value) {
-              if (value.length < 4) {
-                return Promise.reject(new Error('Um e-mail válido precisa no mínimo de 4 caracteres'));
-              }
-              if (value.includes("@") || value.includes("#") || value.includes("$") || value.includes("%") || value.includes("&")) {
-                return Promise.reject(new Error('Um e-mail válido precisa conter: @'));
-              }
-              if (value.includes(".") === false) {
-                return Promise.reject(new Error('Um e-mail válido precisa conter: .'));
-              }
-              if (value.length >= 4 && value.includes(".") && value.includes("@")) {
-                return Promise.resolve();
-              }
-            },
-          }),
-        ]}
-      >
-        <Input 
-          placeholder="Senha"
-        />
-      </Form.Item>
+    <Form.Item
+      label="Senha"
+      name="password"
+      rules={[
+        { required: true, message: "O campo Senha é obrigatório!" },
+        () => ({
+          validator(_, value) {
+            if (!value) {
+              return Promise.resolve();
+            }
+            if (value.length < 8) {
+              return Promise.reject(
+                new Error(
+                  "Uma Senha segura precisa de no mínimo de 8 caracteres!"
+                )
+              );
+            }
+            if (
+              value.includes("1") === false &&
+              value.includes("2") === false &&
+              value.includes("3") === false &&
+              value.includes("4") === false &&
+              value.includes("5") === false &&
+              value.includes("6") === false &&
+              value.includes("7") === false &&
+              value.includes("8") === false &&
+              value.includes("9") === false &&
+              value.includes("0") === false
+            ) {
+              return Promise.reject(
+                new Error(
+                  "Uma Senha segura precisa conter ao menos um número!"
+                )
+              );
+            }
+              return Promise.resolve();
+          },
+        }),
+      ]}
+    >
+      <Input.Password placeholder="" />
+    </Form.Item>
   );
 }
 
