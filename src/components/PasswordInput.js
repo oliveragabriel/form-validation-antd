@@ -43,7 +43,7 @@ function PasswordInput() {
         }),
       ]}
     >
-      <Input.Password placeholder="" />
+      <Input.Password placeholder="" style={{ width: '50%' }} />
     </Form.Item>
   );
 }

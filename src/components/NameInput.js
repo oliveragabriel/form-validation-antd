@@ -14,6 +14,7 @@ function NameInput() {
         <Input 
           placeholder=""
           addonAfter={<UserOutlined />}
+          style={{ width: '50%' }}
         />
       </Form.Item>
   );

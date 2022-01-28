@@ -26,6 +26,7 @@ function CpfInput() {
         <Input 
           placeholder=""
           addonAfter={<IdcardOutlined />}
+          style={{ width: '50%' }}
         />
       </Form.Item>
   );

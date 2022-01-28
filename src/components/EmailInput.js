@@ -33,6 +33,7 @@ function EmailInput() {
         <Input 
           placeholder="exemplo@exemplo.com"
           addonAfter={<MailOutlined />}
+          style={{ width: '50%' }}
         />
       </Form.Item>
   );

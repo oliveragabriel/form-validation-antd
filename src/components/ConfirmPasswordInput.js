@@ -16,11 +16,12 @@ function ConfirmPasswordInput() {
             if (value.length >= getFieldValue('password').length  && getFieldValue('password') !== value) {
               return Promise.reject(new Error('Os campos Senha e Confirmar Senha não estão iguais!'));
             }
+            return Promise.resolve();
           },
         })  
       ]}
     >
-      <Input.Password placeholder="" />
+      <Input.Password placeholder="" style={{ width: '50%' }} />
     </Form.Item>
   );
 }
