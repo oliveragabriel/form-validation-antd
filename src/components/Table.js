@@ -37,6 +37,7 @@ function UserTable() {
   ];
 
   const data = useSelector((state) => state.counter.pessoa);
+  // usar getState???
 
   // const pessoa = {
   //   username: data.username,
