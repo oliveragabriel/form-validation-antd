@@ -3,11 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 export const counterSlice = createSlice({
   name: "counter",
   initialState: {
-    value: {
-      pessoa: {},
-      control: false,
-      index: null
-    },
+    pessoa: {},
+    control: false,
+    index: null,
   },
   reducers: {
     setPerson: (state, action) => {
