@@ -1,6 +1,5 @@
 import { Form, Input } from "antd";
 import { IdcardOutlined } from '@ant-design/icons';
-import "antd/dist/antd.css";
 
 function RgInput() {
   return (

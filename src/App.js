@@ -1,6 +1,11 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+import { setPerson, setAlert } from "./features/counterSlice";
+
 import { Layout, Form, Button } from "antd";
-import "antd/dist/antd.css";
+import 'antd/dist/antd.min.css';
+
 import Alert from "./components/Alert";
 import NameInput from "./components/NameInput";
 import CpfInput from "./components/CpfInput";
@@ -14,33 +19,28 @@ import Table from "./components/Table";
 function App() {
   const { Header, Content, Footer } = Layout;
 
-  const [index, setIndex] = useState(null);
-  const [control, setControl] = useState(false);
-  const [pessoa, setPessoa] = useState({});
-  console.log(pessoa);
+  const {pessoa, control, index} = useSelector((state) => state.counter);
+  const dispatch = useDispatch();
 
   const [form] = Form.useForm();
 
-  const submitForm = () => {
-    form.resetFields();
-  };
+  useEffect(() => {
+    console.log(pessoa)
+  }, [pessoa]);
 
   const onFinish = useCallback(
     (values) => {
       console.log("Success:", values);
-      setPessoa(values);
-      console.log(pessoa);
-      setControl(true);
-      setIndex(0);
-      submitForm(values);
+      dispatch(setPerson(values));
+      dispatch(setAlert({ control: true, index: 0}));
+      form.resetFields();
     },
-    [pessoa]
+    [form, dispatch]
   );
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
-    setControl(true);
-    setIndex(1);
+    dispatch(setAlert({ control: true, index: 1}));
   };
 
   return (
@@ -84,7 +84,7 @@ function App() {
             Cadastrar
           </Button>
         </Form>
-        <Table pessoa={pessoa} />
+        <Table />
       </Content>
       <Footer></Footer>
     </Layout>

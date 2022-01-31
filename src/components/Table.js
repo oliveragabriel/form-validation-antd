@@ -1,7 +1,8 @@
-import { Table, Space } from "antd";
-import "antd/dist/antd.css";
+import { useCallback } from "react";
+import { Table } from "antd";
+import { useSelector } from 'react-redux';
 
-function UserTable({ pessoa }) {
+function UserTable() {
   const columns = [
     {
       title: "Nome",
@@ -33,28 +34,23 @@ function UserTable({ pessoa }) {
       dataIndex: "password",
       key: "password",
     },
-    // {
-    //   title: 'Ações',
-    //   key: 'action',
-    //   render: (pessoa) => (
-    //     <Space size="middle">
-    //       <button>Editar</button>
-    //       <button>Deletar</button>
-    //     </Space>
-    //   ),
-    // },
   ];
 
-  const data = [
-    {
-      username: pessoa.username,
-      cpf: pessoa.cpf,
-      rg: pessoa.rg,
-      birth: pessoa.birth,
-      email: pessoa.email,
-      password: pessoa.password,
-    },
-  ];
+  const data = useSelector((state) => state.counter.pessoa);
+
+  // const pessoa = {
+  //   username: data.username,
+  //   cpf: data.cpf,
+  //   rg: data.rg,
+  //   email: data.email,
+  //   password: data.password
+  // }
+
+  useCallback(() => {
+    debugger
+    console.log(data);
+  }, [data]);
+  
 
   return <Table columns={columns} dataSource={data} style={{ width: '50%' }} />;
 }

@@ -1,6 +1,5 @@
 import { Form, Input } from "antd";
 import { UserOutlined } from '@ant-design/icons';
-import "antd/dist/antd.css";
 
 function NameInput() {
   return (

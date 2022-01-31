@@ -1,6 +1,5 @@
 import { Form, Input } from "antd";
 import { MailOutlined } from '@ant-design/icons';
-import "antd/dist/antd.css";
 
 function EmailInput() {
   return (

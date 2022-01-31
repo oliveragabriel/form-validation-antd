@@ -1,5 +1,4 @@
 import { Form, DatePicker } from "antd";
-import "antd/dist/antd.css";
 import moment from 'moment';
 
 function BirthDate() {

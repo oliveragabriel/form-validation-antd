@@ -1,5 +1,4 @@
 import { Alert } from "antd";
-import "antd/dist/antd.css";
 
 function showAlert({ control, index }) {
   const message = [
