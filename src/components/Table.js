@@ -47,7 +47,6 @@ function UserTable() {
   // }
 
   useCallback(() => {
-    debugger
     console.log(data);
   }, [data]);
   

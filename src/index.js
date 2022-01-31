@@ -7,10 +7,10 @@ import store from "./store/store";
 import App from "./App";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
+  <Provider store={store}>
+    <React.StrictMode>
       <App />
-    </Provider>
-  </React.StrictMode>,
+    </React.StrictMode>
+  </Provider>,
   document.getElementById("root")
 );
